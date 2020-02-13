@@ -16,7 +16,13 @@ def cipher_caesar(n, text):
 
     Полученную новую строку вернуть как результат
     """
-    return not_implemented
+
+    text_cesar = []
+    for i in range(len(text)):
+        text_cesar.append(alphabet[alphabet.find(text[i]) - len(alphabet) + n])
+    text_cesar = "".join(text_cesar)
+
+    return text_cesar
 
 
 def decipher_caesar(n, text):
