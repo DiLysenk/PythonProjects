@@ -9,6 +9,14 @@ def front_x(words):
     >>> front_x(['яд', 'ад', 'ода', 'яз'])
     ['яд', 'яз', 'ад', 'ода']
     """
+
+
+
+    words
+
+
+
+
     return not_implemented
 
 
@@ -69,7 +77,7 @@ def word_count(string):
 
 # =====================================================
 # testing stuff
-from funtests import CasesTestGen, not_implemented  # noqa: E402
+from  PythonProjects.task05.funtests import CasesTestGen, not_implemented  # noqa: E402
 import unittest  # noqa: E402
 
 

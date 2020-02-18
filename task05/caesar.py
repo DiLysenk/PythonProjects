@@ -52,7 +52,7 @@ def hack_caesar(text):
 #  ####################################################################################################################
 #  # testing stuff
 #  ####################################################################################################################
-from funtests import CasesTestGen, not_implemented  # noqa: E402
+from  PythonProjects.task05.funtests import CasesTestGen, not_implemented  # noqa: E402
 import unittest  # noqa: E402
 
 

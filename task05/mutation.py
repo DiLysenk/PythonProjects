@@ -48,7 +48,7 @@ def filter_in_place(filter_fun, lst):
 
 # =====================================================
 # testing stuff
-from funtests import CasesTestGen, not_implemented  # noqa: E402
+from  PythonProjects.task05.funtests import CasesTestGen, not_implemented  # noqa: E402
 import unittest  # noqa: E402
 
 

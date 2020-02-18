@@ -12,7 +12,15 @@ def constant_f(arg):
     >>> val
     1
     """
-    return not_implemented
+
+    def f():
+        return arg
+
+    return f()
+
+
+
+
 
 
 def argdict(*args, **kwargs):
@@ -26,7 +34,11 @@ def argdict(*args, **kwargs):
     >>> argdict(0, 1, 2, name = "Name")
     {0: 0, 1: 1, 2: 2, name: "Name"}
     """
-    return not_implemented
+
+
+
+
+    return
 
 
 def filter_by_key(d, filtering):
@@ -85,7 +97,7 @@ def compose(*funcs):
 
 # =====================================================
 # testing stuff
-from funtests import CasesTestGen, not_implemented  # noqa: E402
+from PythonProjects.task05.funtests import CasesTestGen, not_implemented  # noqa: E402
 import unittest  # noqa: E402
 
 

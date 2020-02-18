@@ -1,4 +1,84 @@
-from math import ceil
+import math
+def front_x(words):
+    words.sort()
+    return words
+
+
+
+
+
+
+
+
+print(front_x(['яд', 'ад', 'ода', 'яз']))
+
+exit()
+
+
+
+
+
+
+
+
+def constant_f(arg):
+    def f():
+        return arg
+    return f()
+
+
+
+
+
+
+def factors(n):
+    m = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            m.append(i)
+    return m
+
+
+print(factors(12))
+
+exit()
+
+
+def fibonachi(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    return fibonachi(n - 1) + fibonachi(n - 2)
+
+
+exit()
+
+""" код цезаря """
+alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+
+n = 1
+text = "абвг жз"
+text2 = []
+text_cesar = 1
+
+if len(text.split()) == 1:
+    for i in range(len(text)):
+        text2.append(alphabet[alphabet.find(text[i]) - len(alphabet) + n])
+        text_cesar = "".join(text2)
+
+elif len(text.split()) > 1:
+    lst_text = text.split()
+    for string in lst_text:
+        print(string)
+        for i in range(len(string)):
+            print(string)
+            print(text2)
+            text2.append(alphabet[alphabet.find(text[i]) - len(alphabet) + n])
+            text_cesar = "".join(text2)
+        print(text_cesar)
+    lst_text_cesar = " ".join(text_cesar)
+    print(lst_text_cesar)
 
 
 def front_back(a, b):
@@ -69,6 +149,7 @@ def match_ends(words):
                 p += 1
     return i
 
+
 def partial_sum(ints):
     par_sum = []
     for integer in ints:
@@ -77,6 +158,7 @@ def partial_sum(ints):
             n = i + n
         par_sum.append(n)
     return par_sum
+
 
 # Велосипед enumerate:
 #
@@ -89,24 +171,17 @@ def list_enumerate(lst):
     i = -1
 
     for integer in lst:
-
         i += 1
         lst1 = [i, integer]
         enumerate_lst.append(tuple(lst1))
     return enumerate_lst
 
 
-
-
-
-
 def have_same_element(lst1, lst2):
-    return len(set(lst1+lst2)) == len(lst1) + len(lst2) # сравним длину  множества суммы  двух списков и сумму элементов двух списков
+    return len(set(lst1 + lst2)) == len(lst1) + len(
+        lst2)  # сравним длину  множества суммы  двух списков и сумму элементов двух списков
 
 
 print(have_same_element([0, 1, 2], [3, 4]))
 
 exit()
-
-
-

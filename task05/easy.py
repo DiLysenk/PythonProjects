@@ -7,7 +7,8 @@ def plus_one(n):
     >>> plus_one(-1)
     0
     """
-    return not_implemented
+    m = n + 1
+    return m
 
 
 def max_of_three(a, b, c):
@@ -21,7 +22,10 @@ def max_of_three(a, b, c):
     >>> max('z', 'b', 'a')
     'z'
     """
-    return not_implemented
+    n = [a, b, c]
+    n = max(n)
+
+    return n
 
 
 def sign(n):
@@ -36,7 +40,12 @@ def sign(n):
     >>> sign(0.0)
     0
     """
-    return not_implemented
+    if n > 0:
+        return 1
+    elif n == 0:
+        return 0
+    else:
+        return -1
 
 
 def fibonacci(n):
@@ -52,7 +61,12 @@ def fibonacci(n):
     >>> fibonacci(20)
     6765
     """
-    return not_implemented
+
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    return fibonacci(n - 1) + fibonacci(n - 2)
 
 
 def factors(n):
@@ -65,13 +79,19 @@ def factors(n):
     >>> factors(12)
     [1, 2, 3, 4, 6, 12]
     """
-    return not_implemented
+
+    m = []
+    for i in range(1, n + 1):
+        if n % i == 0:
+            m.append(i)
+    return m
 
 
 # =====================================================
 # testing stuff
-from funtests import CasesTestGen, not_implemented  # noqa: E402
+from PythonProjects.task05.funtests import CasesTestGen, not_implemented  # noqa: E402
 import unittest  # noqa: E402
+
 
 class PlusOneTest(CasesTestGen):
     def test_plus(self):
@@ -95,10 +115,10 @@ class MaxOfThreeTest(CasesTestGen):
 class SignTest(CasesTestGen):
     def test_sign(self):
         cases = (
-            ((1.5, ), 1),
-            ((-3, ), -1),
-            ((0.0, ), 0),
-            ((0, ), 0),
+            ((1.5,), 1),
+            ((-3,), -1),
+            ((0.0,), 0),
+            ((0,), 0),
         )
         self.execute_equal_subcases(sign, cases)
 
@@ -106,7 +126,7 @@ class SignTest(CasesTestGen):
 class FactorsTest(CasesTestGen):
     def test_factors(self):
         cases = (
-            ((2,), [1,2]),
+            ((2,), [1, 2]),
             ((12,), [1, 2, 3, 4, 6, 12]),
         )
         self.execute_equal_subcases(factors, cases)
@@ -115,13 +135,13 @@ class FactorsTest(CasesTestGen):
 class FibonacciTest(CasesTestGen):
     def test_fibonacci(self):
         cases = (
-            ((0, ), 0),
-            ((1, ), 1),
-            ((2, ), 1),
-            ((3, ), 2),
-            ((4, ), 3),
-            ((5, ), 5),
-            ((20, ), 6765),
+            ((0,), 0),
+            ((1,), 1),
+            ((2,), 1),
+            ((3,), 2),
+            ((4,), 3),
+            ((5,), 5),
+            ((20,), 6765),
         )
         self.execute_equal_subcases(fibonacci, cases)
 
