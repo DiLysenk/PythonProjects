@@ -12,11 +12,9 @@ def constant_f(arg):
     >>> val
     1
     """
-
     def f():
         return arg
-
-    return f()
+    return f
 
 
 
