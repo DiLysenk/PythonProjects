@@ -12,14 +12,11 @@ def constant_f(arg):
     >>> val
     1
     """
-    def f():
+
+    def n():
         return arg
-    return f
 
-
-
-
-
+    return n
 
 def argdict(*args, **kwargs):
     """
@@ -32,11 +29,16 @@ def argdict(*args, **kwargs):
     >>> argdict(0, 1, 2, name = "Name")
     {0: 0, 1: 1, 2: 2, name: "Name"}
     """
+    dict1 = {}
+    i = 0
+    for n in args:
+        dict1[i] = n
+        i += 1
 
+    for k, v in kwargs.items():
+        dict1[k] = v
+    return dict1
 
-
-
-    return
 
 
 def filter_by_key(d, filtering):
@@ -71,6 +73,8 @@ def argmax_dict(d):
     >>> argmax_dict9({0: 2, 1: 20, 3: 10})
     1
     """
+
+
     return not_implemented
 
 
@@ -95,7 +99,7 @@ def compose(*funcs):
 
 # =====================================================
 # testing stuff
-from PythonProjects.task05.funtests import CasesTestGen, not_implemented  # noqa: E402
+from funtests import CasesTestGen, not_implemented  # noqa: E402
 import unittest  # noqa: E402
 
 
@@ -111,8 +115,8 @@ class FilterByKeyTest(CasesTestGen):
 class ArgmaxTest(CasesTestGen):
     def test_argmax_dict(self):
         cases = (
-            (({0: 2, 1: 5, 2: 10}, ),  2),
-            (({0: 2, 1: 20, 3: 10}, ), 1))
+            (({0: 2, 1: 5, 2: 10},), 2),
+            (({0: 2, 1: 20, 3: 10},), 1))
 
         self.execute_equal_subcases(argmax_dict, cases)
 
@@ -149,7 +153,7 @@ class ConstantFTest(CasesTestGen):
         cases = (
             ((0,), tuple(), 0),
             (("abc",), tuple(), "abc"),
-            (([1,2,3],), tuple(), [1,2,3]),
+            (([1, 2, 3],), tuple(), [1, 2, 3]),
         )
         self.execute_genfunction_subcases(constant_f, cases)
 
