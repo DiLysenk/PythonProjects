@@ -57,7 +57,12 @@ def filter_by_key(d, filtering):
     >>> filter_by_key({'a': 2, 5: 3, 't': 5, 10: 'Yes', 20: True}, filtering)
     {10: 'Yes', 20: 'True'}
     """
-    return not_implemented
+    d1 = {}
+    for key, value in d.items():
+
+        if isinstance(key, int) and key % 2 == 0:
+            d1[key] = value
+    return d1
 
 
 def argmax_dict(d):
