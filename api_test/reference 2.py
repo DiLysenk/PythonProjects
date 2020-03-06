@@ -1,3 +1,6 @@
+from bs4 import BeautifulSoup
+
+
 import requests
 import vk_api
 import selenium
@@ -25,21 +28,14 @@ auth_url = auth_url_template.format(api_auth_url, app_id, ','.join(permissions),
 session = requests.Session()
 response = session.get(auth_url)
 print(auth_url)
-
-payload = {'_origin': 'https://oauth.vk.com', 'ip_h': '13531cf4e9c85b7e88', 'lg_h': "lg_h", 'to': 'aHR0cHM6Ly9vYXV0aC52ay5jb20vYXV0aG9yaXplP2NsaWVudF9pZD03MzQyODM0JnJlZGlyZWN0X3VyaT1odHRwcyUzQSUyRiUyRm9hdXRoLnZrLmNvbSUyRmJsYW5rLmh0bWwmcmVzcG9uc2VfdHlwZT10b2tlbiZzY29wZT0yJnY9NS41MiZzdGF0ZT0mZGlzcGxheT13YXA-', 'email': '+79119563347', 'pass': 'Lansberg9210', 'submit_allow_access': True}
-auth_url_parser = "https://login.vk.com/?act=login&soft=1&utf8=1"
-
-response_post = session.post(auth_url_parser, data=payload)
-
-
-
-
-
 file = open('response.html', 'w')
-file.write(str(response_post.text))
-print()
+file.write(str(response.text))
 file.close()
 
 
-# look for <form> element in response html and parse it
+contetns = file.read()
 
+
+soup = BeautifulSoup(contetns, 'lxml')
+
+print(soup)

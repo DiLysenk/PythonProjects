@@ -157,8 +157,11 @@ class VKAuth(object):
         if parser.method == 'post':
             payload = parser.params
             payload.update(*params)
+            print(payload)
+            print(parser.url)
             try:
                 self.response = self.session.post(parser.url, data=payload)
+                print(self.response.text)
             except requests.exceptions.RequestException as err:
                 print("Error: ", err)
             except requests.exceptions.HTTPError as err:
@@ -255,4 +258,5 @@ class VKAuth(object):
         self.security_code = None
         self.email = None
         self.pswd = None
+
 
